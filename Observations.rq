@@ -42,7 +42,7 @@ PREFIX bif: <bif:>
 
 SELECT DISTINCT ?info ?id ?id_link ?resultTime ?phenomenonTime ?densityOfJF ?quantityOfJF ?sampleSizeValue ?scientificName ?wormsConcept ?stingByJF ?beachedJF ?datastream_link ?feature_link ?total ?next_link
 WHERE {
-    ?col a sosa:ObservationCollection
+    ?col a sosa:ObservationCollection ;
       sosa:resultTime ?resultTime ;
 			sosa:phenomenonTime ?phenomenonTime ; 
       sosa:hasMember ?s .
