@@ -5,7 +5,7 @@
 #+ method: "GET"
 #+ pagination: 100
 #+ transform: {
-#+   "@iot.id": "?id",
+#+   "@iot.id": "?_id",
 #+   "@iot.selfLink": "?id_link",
 #+   "description": "?desc_info",
 #+   "observationType": "?obs_type",
@@ -33,7 +33,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX bif: <bif:>
 
 
-SELECT DISTINCT ?obs_property ?sensor ?id ?id_link ?obs_link ?op_link ?sensor_link ?thing_link ?obs_type ?desc_info ?unit_definition ?unit_symbol ?unit_name
+SELECT DISTINCT ?obs_property ?sensor ?id_link ?obs_link ?op_link ?sensor_link ?thing_link ?obs_type ?desc_info ?unit_definition ?unit_symbol ?unit_name
 WHERE {
     ?col a sosa:ObservationCollection ;
         sosa:observedProperty ?obs_property ;
