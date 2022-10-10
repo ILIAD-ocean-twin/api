@@ -5,6 +5,8 @@
 #+ method: "GET"
 #+ pagination: 100
 #+ transform: {
+#+   "description": "?info",
+#+   "$anchor": "description",
 #+   "value": {
 #+     "@iot.id": "?id",
 #+     "@iot.selfLink": "?id_link",
