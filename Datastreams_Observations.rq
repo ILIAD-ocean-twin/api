@@ -50,13 +50,15 @@ WHERE {
       sosa:hasMember ?s .
     ?s a sosa:Observation ;
 			sosa:hasResult ?result .
-    ?result oim-jf:densityOfJF ?densityOfJF ;
-      oim-jf:quantityOfJF ?quantityOfJF ; 
-			dwc:sampleSizeValue ?sampleSizeValue ;
-			dwc:scientificName ?scientificName ;
-			oim-jf:wormsConcept ?wormsConcept ;
-      oim-jf:stingByJF ?stingByJF ;
-	    oim-jf:beachedJF ?beachedJF .
+    OPTIONAL {
+      ?result oim-jf:densityOfJF ?densityOfJF ;
+        oim-jf:quantityOfJF ?quantityOfJF ; 
+			  dwc:sampleSizeValue ?sampleSizeValue ;
+			  dwc:scientificName ?scientificName ;
+			  oim-jf:wormsConcept ?wormsConcept ;
+        oim-jf:stingByJF ?stingByJF ;
+	      oim-jf:beachedJF ?beachedJF .
+    }
 		BIND ("OGC SensorThings API - Observations" as ?info)	  
     BIND (REPLACE(STR(?s), "^.*/([^/]*)$", "$1") as ?id)
     BIND (REPLACE(STR(?sensor_URI), "^.*/([^/]*)$", "$1") as ?sensor)
@@ -76,7 +78,6 @@ WHERE {
           sosa:hasMember ?s .
         ?s a sosa:Observation ;
 			    sosa:hasResult ?result .
-        ?result dwc:scientificName ?scientificName .
         BIND (REPLACE(STR(?sensor_URI), "^.*/([^/]*)$", "$1") as ?s1)
         BIND (REPLACE(STR(?property_URI), "^.*/([^/]*)$", "$1") as ?p1)
         OPTIONAL { ?s ?p ?_sensor }
