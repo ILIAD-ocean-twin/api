@@ -48,7 +48,8 @@ WHERE {
     ?s a sosa:Observation .
     BIND ("OGC SensorThings API - Datastreams" as ?info)
     BIND (REPLACE(STR(?obs_property), "^.*/([^/]*)$", "$1") as ?prop_id)
-    BIND (CONCAT(STR(?sensor),"-",?prop_id) as ?id)
+    BIND (REPLACE(STR(?sensor), "^.*/([^/]*)$", "$1") as ?sensor_id)
+    BIND (CONCAT(?sensor_id,"-",?prop_id) as ?id)
     BIND (CONCAT("The datastream of jellyFish Abundance by user sensor: ",?sensor, " for observed property: ",?obs_property) as ?desc_info)
     BIND (URI("http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation") AS ?obs_type)
     BIND (URI("http://qudt.org/2.1/vocab/unit") AS ?unit_definition)
