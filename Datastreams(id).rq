@@ -5,7 +5,6 @@
 #+ method: "GET"
 #+ pagination: 100
 #+ transform: {
-#+   "@iot.id": "?id_input",
 #+   "@iot.selfLink": "?id_link",
 #+   "description": "?desc_info",
 #+   "observationType": "?obs_type",
