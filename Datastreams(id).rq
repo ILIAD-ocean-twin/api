@@ -5,23 +5,20 @@
 #+ method: "GET"
 #+ pagination: 100
 #+ transform: {
-#+   "description": "?info",
-#+   "$anchor": "description",
-#+   "value": {
-#+     "@iot.id": "?id",
-#+     "@iot.selfLink": "?id_link",
-#+     "description": "?desc_info",
-#+     "observationType": "?obs_type",
-#+     "unitOfMeasurement": {
-#+       "symbol": "?unit_symbol",
-#+       "name": "?unit_name",
-#+       "definition": "?unit_definition",
-#+     },
-#+     "Observations@iot.navigationLink": "?obs_link",
-#+     "ObservedProperty@iot.navigationLink": "?op_link",
-#+     "Sensor@iot.navigationLink": "?sensor_link",
-#+     "Thing@iot.navigationLink": "?thing_link",
-#+   }
+#+   "@iot.id": "?id",
+#+   "$anchor": "@iot.id",
+#+   "@iot.selfLink": "?id_link",
+#+   "description": "?desc_info",
+#+   "observationType": "?obs_type",
+#+   "unitOfMeasurement": {
+#+     "symbol": "?unit_symbol",
+#+     "name": "?unit_name",
+#+     "definition": "?unit_definition",
+#+   },
+#+   "Observations@iot.navigationLink": "?obs_link",
+#+   "ObservedProperty@iot.navigationLink": "?op_link",
+#+   "Sensor@iot.navigationLink": "?sensor_link",
+#+   "Thing@iot.navigationLink": "?thing_link",
 #+ }
 
 PREFIX iliad-api: <https://w3id.org/iliad/api>
@@ -37,14 +34,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX bif: <bif:>
 
 
-SELECT DISTINCT ?info ?id ?id_link ?obs_link ?op_link ?sensor_link ?thing_link ?obs_type ?desc_info ?unit_definition ?unit_symbol ?unit_name
+SELECT DISTINCT ?id ?id_link ?obs_link ?op_link ?sensor_link ?thing_link ?obs_type ?desc_info ?unit_definition ?unit_symbol ?unit_name
 WHERE {
     ?col a sosa:ObservationCollection ;
         sosa:observedProperty ?obs_property ;
         sosa:madeBySensor ?sensor ;
         sosa:hasMember ?s .
     ?s a sosa:Observation .
-    BIND ("OGC SensorThings API - Datastreams" as ?info)
     BIND (REPLACE(STR(?obs_property), "^.*/([^/]*)$", "$1") as ?prop_id)
     BIND (REPLACE(STR(?sensor), "^.*/([^/]*)$", "$1") as ?sensor_id)
     BIND (CONCAT(?sensor_id,"-",?prop_id) as ?id)
