@@ -33,7 +33,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX bif: <bif:>
 
 
-SELECT DISTINCT ?obs_property ?sensor ?id ?id_link ?obs_link ?op_link ?sensor_link ?thing_link ?obs_type ?desc_info ?unit_definition ?unit_symbol ?unit_name
+SELECT DISTINCT ?id ?id_link ?obs_link ?op_link ?sensor_link ?thing_link ?obs_type ?desc_info ?unit_definition ?unit_symbol ?unit_name
 WHERE {
     ?col a sosa:ObservationCollection ;
         sosa:observedProperty ?obs_property ;
@@ -43,17 +43,17 @@ WHERE {
     BIND (REPLACE(STR(?obs_property), "^.*/([^/]*)$", "$1") as ?prop_id)
     BIND (REPLACE(STR(?sensor), "^.*/([^/]*)$", "$1") as ?sensor_id)
     BIND (CONCAT(?sensor_id,"-",?prop_id) as ?id)
-    FILTER (strEnds(?id, ?_id))	
+    FILTER (strEnds(?id,"3037-jellyFishAbundanceProperty"))	
     BIND (CONCAT("The datastream of jellyFish Abundance by user sensor: ",?sensor_id, " for observed property: ",?prop_id) as ?desc_info)
     BIND (URI("http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation") AS ?obs_type)
     BIND (URI("http://qudt.org/2.1/vocab/unit") AS ?unit_definition)
     BIND (URI("U") AS ?unit_symbol)
     BIND (URI("Unitless") AS ?unit_name)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')')) AS ?id_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/Observations')) AS ?obs_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/ObservedProperty')) AS ?op_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/Sensor')) AS ?sensor_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/Thing')) AS ?thing_link)  
-} 
+    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?id,')')) AS ?id_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?id,')/Observations')) AS ?obs_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?id,')/ObservedProperty')) AS ?op_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?id,')/Sensor')) AS ?sensor_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?id,')/Thing')) AS ?thing_link)
+}
 
 
