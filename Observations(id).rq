@@ -5,7 +5,7 @@
 #+ method: "GET"
 #+ pagination: 100
 #+ transform: {
-#+   "@iot.id": "?id",
+#+   "@iot.id": "?s",
 #+   "$anchor": "@iot.id",
 #+   "@iot.selfLink": "?id_link",
 #+   "phenomenonTime": "?phenomenonTime",
@@ -34,7 +34,7 @@ PREFIX oim-jf:  <http://w3id.org/iliad/oim/jellyfish#>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 PREFIX bif: <bif:>
 
-SELECT DISTINCT ?s ?id_link ?resultTime ?phenomenonTime ?densityOfJF ?quantityOfJF ?sampleSizeValue ?scientificName ?wormsConcept ?stingByJF ?beachedJF ?datastream_link ?feature_link
+SELECT DISTINCT ?s ?id ?id_link ?resultTime ?phenomenonTime ?densityOfJF ?quantityOfJF ?sampleSizeValue ?scientificName ?wormsConcept ?stingByJF ?beachedJF ?datastream_link ?feature_link
 WHERE {
     ?col a sosa:ObservationCollection ;
         sosa:resultTime ?resultTime ;
