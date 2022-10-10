@@ -5,7 +5,7 @@
 #+ method: "GET"
 #+ pagination: 100
 #+ transform: {
-#+   "@iot.id": "?s",
+#+   "@iot.id": "?id",
 #+   "$anchor": "@iot.id",
 #+   "@iot.selfLink": "?id_link",
 #+   "phenomenonTime": "?phenomenonTime",
