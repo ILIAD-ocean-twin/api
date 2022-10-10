@@ -5,7 +5,7 @@
 #+ method: "GET"
 #+ pagination: 100
 #+ transform: {
-#+   "@iot.id": "?_id",
+#+   "@iot.id": "?id_input",
 #+   "@iot.selfLink": "?id_link",
 #+   "description": "?desc_info",
 #+   "observationType": "?obs_type",
@@ -49,6 +49,7 @@ WHERE {
     BIND (URI("http://qudt.org/2.1/vocab/unit") AS ?unit_definition)
     BIND (URI("U") AS ?unit_symbol)
     BIND (URI("Unitless") AS ?unit_name)
+    BIND (CONCAT(str(?_id),"/") AS ?id_input)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')')) AS ?id_link)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/Observations')) AS ?obs_link)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/ObservedProperty')) AS ?op_link)
