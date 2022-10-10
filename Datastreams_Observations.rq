@@ -68,8 +68,21 @@ WHERE {
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')/Datastream')) AS ?datastream_link)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')/FeautureOfInterest')) AS ?feature_link)
     {
-       SELECT (count(*) as ?total) WHERE { ?x a sosa:Observation }
-
+       SELECT (count(*) as ?total) 
+       WHERE { 
+        ?col a sosa:ObservationCollection ;
+          sosa:madeBySensor ?sensor_URI ;
+          sosa:observedProperty ?property_URI ;
+          sosa:hasMember ?s .
+        ?s a sosa:Observation ;
+			    sosa:hasResult ?result .
+        ?result dwc:scientificName ?scientificName .
+        BIND (REPLACE(STR(?sensor_URI), "^.*/([^/]*)$", "$1") as ?s1)
+        BIND (REPLACE(STR(?property_URI), "^.*/([^/]*)$", "$1") as ?p1)
+        OPTIONAL { ?s ?p ?_sensor }
+        OPTIONAL { ?s ?p ?_property }
+        FILTER (?s1= ?_sensor && ?p1=?_property)
+      }
     }
     OPTIONAL { ?s ?p ?_page } 
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations?$top=100&$skip=', (xsd:integer(?_page)+1)*100)) AS ?next_link)
