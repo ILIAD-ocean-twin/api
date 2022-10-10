@@ -5,7 +5,7 @@
 #+ method: "GET"
 #+ pagination: 100
 #+ transform: {
-#+   "@iot.id": "?s",
+#+   "@iot.id": "?id",
 #+   "$anchor": "@iot.id",
 #+   "@iot.selfLink": "?id_link",
 #+   "phenomenonTime": "?phenomenonTime",
@@ -50,6 +50,7 @@ WHERE {
         oim-jf:stingByJF ?stingByJF ;
 	    oim-jf:beachedJF ?beachedJF .
     FILTER (strEnds(STR(?s), CONCAT('/',?_id)))	
+    BIND (REPLACE(STR(?s), "^.*/([^/]*)$", "$1") as ?id)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?_id,')')) AS ?id_link)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?_id,')/Datastream')) AS ?datastream_link)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?_id,')/FeautureOfInterest')) AS ?feature_link)
