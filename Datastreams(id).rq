@@ -5,19 +5,21 @@
 #+ method: "GET"
 #+ pagination: 100
 #+ transform: {
-#+   "@iot.id": "?id",
-#+   "@iot.selfLink": "?id_link",
-#+   "description": "?desc_info",
-#+   "observationType": "?obs_type",
-#+   "unitOfMeasurement": {
-#+     "symbol": "?unit_symbol",
-#+     "name": "?unit_name",
-#+     "definition": "?unit_definition",
-#+   },
-#+   "Observations@iot.navigationLink": "?obs_link",
-#+   "ObservedProperty@iot.navigationLink": "?op_link",
-#+   "Sensor@iot.navigationLink": "?sensor_link",
-#+   "Thing@iot.navigationLink": "?thing_link",
+#+   "value": {
+#+     "@iot.id": "?id",
+#+     "@iot.selfLink": "?id_link",
+#+     "description": "?desc_info",
+#+     "observationType": "?obs_type",
+#+     "unitOfMeasurement": {
+#+       "symbol": "?unit_symbol",
+#+       "name": "?unit_name",
+#+       "definition": "?unit_definition",
+#+     },
+#+     "Observations@iot.navigationLink": "?obs_link",
+#+     "ObservedProperty@iot.navigationLink": "?op_link",
+#+     "Sensor@iot.navigationLink": "?sensor_link",
+#+     "Thing@iot.navigationLink": "?thing_link",
+#+   }
 #+ }
 
 PREFIX iliad-api: <https://w3id.org/iliad/api>
