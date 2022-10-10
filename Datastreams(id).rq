@@ -37,7 +37,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX bif: <bif:>
 
 
-SELECT DISTINCT ?info ?obs_property ?sensor ?total ?id ?id_link ?obs_link ?op_link ?sensor_link ?thing_link ?obs_type ?desc_info ?unit_definition ?unit_symbol ?unit_name ?next_link
+SELECT DISTINCT ?info ?id ?id_link ?obs_link ?op_link ?sensor_link ?thing_link ?obs_type ?desc_info ?unit_definition ?unit_symbol ?unit_name
 WHERE {
     ?col a sosa:ObservationCollection ;
         sosa:observedProperty ?obs_property ;
@@ -59,19 +59,6 @@ WHERE {
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?id,')/ObservedProperty')) AS ?op_link)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?id,')/Sensor')) AS ?sensor_link)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?id,')/Thing')) AS ?thing_link)
-    {
-        SELECT (count(*) as ?total) 
-        WHERE { 
-            SELECT DISTINCT ?sensor ?obs_property
-            WHERE{
-                ?col a sosa:ObservationCollection ;
-                sosa:observedProperty ?obs_property ;
-                sosa:madeBySensor ?sensor .
-            }  
-        }
-    }
-    OPTIONAL { ?s ?p ?_page } 
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams?$top=100&$skip=', (xsd:integer(?_page)+1)*100)) AS ?next_link)
 } 
 
 
