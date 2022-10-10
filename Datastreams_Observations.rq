@@ -61,6 +61,8 @@ WHERE {
     BIND (REPLACE(STR(?s), "^.*/([^/]*)$", "$1") as ?id)
     BIND (REPLACE(STR(?sensor_URI), "^.*/([^/]*)$", "$1") as ?sensor)
     BIND (REPLACE(STR(?property_URI), "^.*/([^/]*)$", "$1") as ?property)
+    OPTIONAL { ?s ?p ?_sensor }
+    OPTIONAL { ?s ?p ?_property }
     FILTER (?sensor= ?_sensor && ?property=?_property)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')')) AS ?id_link)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')/Datastream')) AS ?datastream_link)
