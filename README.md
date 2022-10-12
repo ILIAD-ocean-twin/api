@@ -6,7 +6,7 @@ Data is retrieved from a semantic store (Virtuoso triplestore).
 | :warning: Methods require 'application/json' in accept header, i.e., -H "accept: application/json"   |
 |:-----------------------------------------------------------------------------------------------------|
 
-
+## Table of Contents
 - [Base Resource Path](#Base-Resource-Path)
 - [Observations](#Observations)
   * [Retrieve all Observations](#Retrieve-all-Observations)
