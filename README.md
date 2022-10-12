@@ -9,6 +9,7 @@ Data is retrieved from a semantic store (Virtuoso triplestore).
 | I should warn you ...      |
 
 | :warning: Methods require 'application/json' in accept header, i.e., -H "accept: application/json"   |
+|:-----------------------------------------------------------------------------------------------------|
 
 ## Base Resource Path
 ```
