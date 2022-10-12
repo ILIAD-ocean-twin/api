@@ -3,20 +3,42 @@ OGC SensorThings API for ILIAD ocean twin project.
 Source data is modelled according to the Ocean Information Model (OIM).
 Data is retrieved from a semantic store (Virtuoso triplestore).
 
-
-| :warning: WARNING          |
-|:---------------------------|
-| I should warn you ...      |
-
 | :warning: Methods require 'application/json' in accept header, i.e., -H "accept: application/json"   |
 |:-----------------------------------------------------------------------------------------------------|
+
+
+- [Base Resource Path](#Base Resource Path)
+- [Observations](#Observations)
+  * [Retrieve all Observations](#Retrieve all Observations)
+  * [Retrieve a specific Observation](#Retrieve a specific Observation)
+  * [Retrieve Observations for a specific Datastream](#Retrieve Observations for a specific Datastream)
+- [Datastreams](#Datastreams)
+  * [Retrieve all Datastreams](#Retrieve all Datastreams)
+  * [Retrieve a specific Datastream](#Retrieve a specific Datastream)
+  * [Retrieve Datastream for a specific Observation](#Retrieve Datastream for a specific Observation)
+- [Features of Interest](#Features of Interest)
+  * [Retrieve all FeaturesOfInterest](#Retrieve all FeaturesOfInterest)
+  * [Retrieve a specific FeatureOfInterest](#Retrieve a specific FeatureOfInterest)
+  * [Retrieve FeatureOfInterest for a specific Observation](#Retrieve FeatureOfInterest for a specific Observation)
+- [Observed properties](#Observed properties)
+  * [Retrieve all the Observed properties](#Retrieve all the Observed properties)
+  * [Retrieve the ObservedProperty of a specific Datastream.](#Retrieve the ObservedProperty of a specific Datastream.)
+- [Sensors](#Sensors)
+  * [Retrieve all Sensors](#Retrieve all Sensors)
+  * [Retrieve a specific Sensor](#Retrieve a specific Sensor)
+  * [Retrieve the Sensor of a specific Datastream](#Retrieve the Sensor of a specific Datastream)
+- [Things](#Things)
+  * [Retrieve all Things](#Retrieve all Things)
+  * [Retrieve a specific Thing](#Retrieve a specific Thing)
+  * [Retrieve the Thing of a specific Datastream](#Retrieve the Thing of a specific Datastream)
+
 
 ## Base Resource Path
 ```
 https://w3id.org/iliad/api/v1.0
 ```
 ## Observations
-### Retrieve all observations
+### Retrieve all Observations
 ```
 https://w3id.org/iliad/api/v1.0/Observations
 ```
@@ -28,7 +50,7 @@ For example:
 ```
 https://w3id.org/iliad/api/v1.0/Observations(3-10-361-Rhopilema%2520nomadica)
 ```
-### Retrieve Observations for a specific Datastream.
+### Retrieve Observations for a specific Datastream
 ```
 https://w3id.org/iliad/api/v1.0//Datastreams(id)/Observations
 ```
@@ -79,7 +101,7 @@ https://w3id.org/iliad/api/v1.0//Datastreams(id)/ObservedProperty
 
 ### Retrieve a specific Sensor
 
-### Retrieve the Sensor of a specific Datastream.
+### Retrieve the Sensor of a specific Datastream
 ```
 https://w3id.org/iliad/api/v1.0//Datastreams(id)/Sensor
 ```
@@ -89,7 +111,7 @@ https://w3id.org/iliad/api/v1.0//Datastreams(id)/Sensor
 
 ### Retrieve a specific Thing
 
-### Retrieve the Thing of a specific Datastream.
+### Retrieve the Thing of a specific Datastream
 ```
 https://w3id.org/iliad/api/v1.0//Datastreams(id)/Thing
 ```
