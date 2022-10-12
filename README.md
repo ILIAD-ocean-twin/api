@@ -6,6 +6,10 @@ Data is retrieved from a semantic store (Virtuoso triplestore).
 Methods require 'application/json' in accept header, i.e., -H "accept: application/json"
 {: .alert .alert-warning}
 
+| :warning: WARNING          |
+|:---------------------------|
+| I should warn you ...      |
+
 ## Base Resource Path
 ```
 https://w3id.org/iliad/api/v1.0
