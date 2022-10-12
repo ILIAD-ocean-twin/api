@@ -7,11 +7,11 @@ Data is retrieved from a semantic store (Virtuoso triplestore).
 |:-----------------------------------------------------------------------------------------------------|
 
 
-- [Base Resource Path](#Base Resource Path)
+- [Base Resource Path](#Base-Resource-Path)
 - [Observations](#Observations)
-  * [Retrieve all Observations](#Retrieve all Observations)
-  * [Retrieve a specific Observation](#Retrieve a specific Observation)
-  * [Retrieve Observations for a specific Datastream](#Retrieve Observations for a specific Datastream)
+  * [Retrieve all Observations](#Retrieve-all-Observations)
+  * [Retrieve a specific Observation](#Retrieve-a-specific-Observation)
+  * [Retrieve Observations for a specific Datastream](#Retrieve-Observations-for-a-specific-Datastream)
 - [Datastreams](#Datastreams)
   * [Retrieve all Datastreams](#Retrieve all Datastreams)
   * [Retrieve a specific Datastream](#Retrieve a specific Datastream)
