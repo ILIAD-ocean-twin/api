@@ -44,6 +44,7 @@ WHERE {
     BIND (REPLACE(STR(?obs_property), "^.*/([^/]*)$", "$1") as ?prop_id)
     BIND (REPLACE(STR(?sensor), "^.*/([^/]*)$", "$1") as ?sensor_id)
     BIND (CONCAT(?sensor_id,"-",?prop_id) as ?id)
+    OPTIONAL { ?s ?p ?_id }
     FILTER (?id= ?_id )
     BIND (CONCAT("The datastream of jellyFish Abundance by user sensor: ",?sensor_id, " for observed property: ",?prop_id) as ?desc_info)
     BIND (URI("http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation") AS ?obs_type)
