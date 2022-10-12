@@ -3,12 +3,12 @@ OGC SensorThings API for ILIAD ocean twin project.
 Source data is modelled according to the Ocean Information Model (OIM).
 Data is retrieved from a semantic store (Virtuoso triplestore).
 
-Methods require 'application/json' in accept header, i.e., -H "accept: application/json"
-{: .alert .alert-warning}
 
 | :warning: WARNING          |
 |:---------------------------|
 | I should warn you ...      |
+
+| :warning: Methods require 'application/json' in accept header, i.e., -H "accept: application/json"   |
 
 ## Base Resource Path
 ```
