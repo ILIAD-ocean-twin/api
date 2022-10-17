@@ -42,6 +42,7 @@ WHERE {
         sosa:hasMember ?s .
     ?s a sosa:Observation ;
 		sosa:hasResult ?result .
+		OPTIONAL{
     ?result oim-jf:densityOfJF ?densityOfJF ;
         oim-jf:quantityOfJF ?quantityOfJF ; 
 		dwc:sampleSizeValue ?sampleSizeValue ;
@@ -49,6 +50,7 @@ WHERE {
 		oim-jf:wormsConcept ?wormsConcept ;
         oim-jf:stingByJF ?stingByJF ;
 	    oim-jf:beachedJF ?beachedJF .
+	  }
     FILTER (strEnds(STR(?s), CONCAT('/',?_id)))	
     BIND (REPLACE(STR(?s), "^.*/([^/]*)$", "$1") as ?id)
     BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?_id,')')) AS ?id_link)
