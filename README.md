@@ -1,4 +1,4 @@
-# ILIAD OGC SensorThings API 
+# ILIAD OGC SensorThings APIs template
 OGC SensorThings API for ILIAD ocean twin project.
 Source data is modelled according to the Ocean Information Model (OIM).
 Data is retrieved from a semantic store (Virtuoso triplestore).
